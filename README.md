@@ -46,10 +46,22 @@
 | [change-impact](change-impact/SKILL.md)               | 기존 기능 변경의 영향 조사 | 호출 경로, 호환성, 데이터 전환과 회귀 위험  |
 | [root-cause-debugging](root-cause-debugging/SKILL.md) | 오류 재현과 원인 추적      | 재현 사례, 가설별 증거, 최소 수정 방향      |
 | [code-review](code-review/SKILL.md)                   | 구현 변경분 리뷰           | 실제 결함, 회귀, 중요한 테스트 공백         |
+| [code-map](code-map/SKILL.md)                         | 현재 코드 한눈에 보기      | 구조도, 진입점, 핵심 함수·알고리즘, 수정 위치 |
 
 ## 사용 예시
 
 다음 예시는 각각 별도의 요청입니다. 앞 단계 결과를 확인하고 필요한 시점에 호출합니다.
+
+### 현재 코드의 전체 구조를 보고 싶을 때
+
+```text
+$code-map
+현재 프로젝트의 구조와 주요 실행 흐름을 한눈에 보여줘.
+진입점, 핵심 파일·함수와 알고리즘, 데이터 흐름을 실제 코드 위치로 연결해 줘.
+코드는 수정하지 말고, 자세히 볼 부분을 내가 고를 수 있게 해줘.
+```
+
+이 스킬은 개발 전·중·후 언제든 독립적으로 사용할 수 있습니다. 기본은 읽기 전용 지도이며 이해 퀴즈나 다음 개발 단계를 자동으로 시작하지 않습니다. 문서로 보관하려면 `현재 지도를 docs/code-map.md에 저장해 줘`처럼 요청합니다. 개요를 본 뒤 특정 기능의 상세 흐름이나 알고리즘만 이어서 볼 수 있습니다.
 
 ### 새 기능을 시작할 때
 
@@ -166,7 +178,7 @@ $root-cause-debugging
 
 ## 설치와 조회
 
-이 묶음에는 **독립된 스킬 12개**가 들어 있습니다. 전체를 사용하려면 각 스킬 폴더와 그 안의 참고 파일을 함께 설치해야 합니다. 한 번의 설치 요청으로 전체 폴더를 함께 설치할 수 있지만, `delivery-workflow` 하나만 설치하면 나머지가 자동 설치되지는 않습니다.
+이 묶음에는 **독립된 스킬 13개**가 들어 있습니다. 전체를 사용하려면 각 스킬 폴더와 그 안의 참고 파일을 함께 설치해야 합니다. 한 번의 설치 요청으로 전체 폴더를 함께 설치할 수 있지만, `delivery-workflow` 하나만 설치하면 나머지가 자동 설치되지는 않습니다.
 
 로컬 설치는 사용할 범위에 따라 다음 위치를 선택합니다.
 
@@ -198,6 +210,7 @@ $root-cause-debugging
 ├── change-impact/SKILL.md
 ├── root-cause-debugging/SKILL.md
 ├── code-review/SKILL.md
+├── code-map/SKILL.md
 └── delivery-workflow/
     ├── SKILL.md
     └── references/
@@ -210,7 +223,7 @@ Codex CLI에서 `/skills` 또는 `$`로 발견된 스킬을 조회·선택합니
 Codex에 다음처럼 요청할 수 있습니다.
 
 ```text
-https://github.com/tjdcjf1996/public_skills 의 스킬 12개를 모두 설치해 줘.
+https://github.com/tjdcjf1996/public_skills 의 스킬 13개를 모두 설치해 줘.
 저장소 구조와 현재 환경의 스킬 검색 경로를 확인하고,
 각 SKILL.md와 필요한 assets/references를 함께 설치해.
 기존 동명 스킬은 덮어쓰지 말고 충돌을 알려 줘.
@@ -223,7 +236,7 @@ https://github.com/tjdcjf1996/public_skills 의 스킬 12개를 모두 설치해
 git clone https://github.com/tjdcjf1996/public_skills.git
 ```
 
-복제 후 저장소 루트의 스킬 폴더 12개를 원하는 `.agents/skills/` 위치에 참고 파일과 함께 배치합니다. 복제만으로 자동 등록되는 것은 아닙니다. README와 Git 메타데이터는 스킬 폴더 안으로 복사할 필요가 없습니다.
+복제 후 저장소 루트의 스킬 폴더 13개를 원하는 `.agents/skills/` 위치에 참고 파일과 함께 배치합니다. 복제만으로 자동 등록되는 것은 아닙니다. README와 Git 메타데이터는 스킬 폴더 안으로 복사할 필요가 없습니다.
 
 ### 기존 설치본 업데이트
 
